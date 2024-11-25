@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sneakin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'signup/signup.css' %}">
+</head>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+    <h3>Sign Up Here</h3>
+    
+    <label for="firstname">First Name</label>
+    <input type="text" placeholder="First Name" name="firstname" id="firstname">
+
+    <label for="lastname">Last Name</label>
+    <input type="text" placeholder="Last Name" id="lastname" name="lastname">
+
+    <label for="username">Username</label>
+    <input type="text" placeholder="Username" id="username" name="username">
+    
+    <label for="email">Email</label>
+    <input type="email" placeholder="Email" id="email" name="email">
+
+    <label for="password">Password</label>
+    <input type="password" placeholder="Password" id="password" name="password1">
+
+    <label for="confirm_password">Confirm Password</label>
+    <input type="password" placeholder="Confirm Password" id="confirm_password" name="password2">
+
+    <button>Sign Up</button>
+   
+    <div class="signup-link">
+        <p>Already have an account? <a href="{% url 'login-page' %}">Login</a></p>
+    </div>
+</form>
+</body>
+</html>

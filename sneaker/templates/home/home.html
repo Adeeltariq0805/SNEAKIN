@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sneakin - Premium Sneakers</title>
+  <link rel="stylesheet" href="{% static 'home/home.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <div class="logo">SNEAKIN</div>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#featured">Featured</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="auth-buttons">
+      {% if user.is_authenticated %}
+      <i class="fa-solid fa-user"></i>
+      <span class="loginame">{{ user.username }}</span>
+      <button><a href="{% url 'logout' %}">Logout</a></button>
+      {% else %}
+      <button><a href="{% url 'login-page' %}">Login</a></button>
+      <button><a href="{% url 'signup-page' %}">Sign Up</a></button>
+      {% endif %}
+      <div class="cart-icon">
+        <a href="{% url 'cart_page' %}"><i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content" data-aos="fade-up" data-aos-delay="100">
+      <h1>Step Into Innovation</h1>
+      <p>Discover the perfect blend of style and comfort</p>
+      <button class="cta-button">Shop Now</button>
+    </div>
+  </section>
+
+  <section id="products" class="products">
+    <h2 data-aos="fade-up">Latest Drops</h2>
+    <div class="product-flex">
+      {% for product in products %}
+      <div class="product-card" data-aos="fade-up">
+        <div class="product-image">
+          <a href="{% url 'prodetail' product.id %}">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+          </a>
+        </div>
+        <h3>{{ product.name }}</h3>
+
+        <h3>$193</h3>
+        <button class="add-to-cart-btn"  value="{{ product.id }}" id="add-cart">Add to
+          Cart</button>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <div>
+    <img src="{% static 'images/channels4_banner.jpg' %}" alt="">
+  </div>
+
+  <section id="featured" class="featured">
+    <div class="featured-content" data-aos="fade-right">
+      <h2>Featured Collection</h2>
+      <p>Experience the next level of comfort and style with our signature series.</p>
+      <button class="secondary-button">Learn More</button>
+    </div>
+    <div class="featured-image" data-aos="fade-left">
+      <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3" alt="Featured Sneaker">
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>SNEAKIN</h3>
+        <p>Premium sneakers for the modern lifestyle.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email: info@sneakin.com</p>
+        <p>Phone: (555) 123-4567</p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 SNEAKIN. All rights reserved.</p>
+    </div>
+  </footer>
+ 
+
+  <script src="{% static 'home/home.js' %}"></script>
+  <script src="https://kit.fontawesome.com/aa60fdd103.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{% static 'prodetail/prodetail.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="product-container">
+        <div class="product-gallery">
+          <div class="main-image">
+            <img id="mainImage" src="{{ product.image.url }}" alt="{{ product.name }}" style="height: 80vh;" />
+          </div>
+     
+        </div>
+        <div class="product-info">
+          <h1>{{ product.name }}</h1>
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="reviews">({{ product.reviews_count }} reviews)</span>
+          </div>
+          <div class="price">
+            <span class="current-price">${{ product.price }}</span>
+            <span class="original-price">${{ product.original_price }}</span>
+            <span class="discount">{{ product.discount }}% 0 OFF</span>
+          </div>
+          <div class="description">
+            <p>{{product.discription}}</p>
+          </div>
+          <div class="features">
+            <h3>Key Features</h3>
+            <ul>
+              {% for feature in product.features %}
+              <li>{{ feature }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="size-options">
+            <h3>Size</h3>
+            <div class="size-picker">
+              <button class="size-btn" onclick="selectSize(7)">7</button>
+              <button class="size-btn" onclick="selectSize(8)">8</button>
+              <button class="size-btn" onclick="selectSize(9)">9</button>
+              <button class="size-btn" onclick="selectSize(10)">10</button>
+              <button class="size-btn" onclick="selectSize(11)">11</button>
+              <button class="size-btn" onclick="selectSize(12)">12</button>
+              <button class="size-btn" onclick="selectSize(13)">13</button>
+            </div>
+          </div>
+          <div class="quantity">
+            <h3>Quantity</h3>
+            <div class="quantity-selector">
+              <button onclick="updateQuantity(-1)">-</button>
+              <span id="quantity">1</span>
+              <button onclick="updateQuantity(1)">+</button>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'prodetail/prodetail.js'%}"></script>
+    <script src="{% static 'prodetail/counter.js'%}"></script>
+  </body>
+</html>

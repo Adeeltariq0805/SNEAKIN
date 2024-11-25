@@ -1,0 +1,111 @@
+*, *:before, *:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: url('../images/domino-studio-164_6wVEHfI-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+form{
+    height: 880px;
+    width: 800px;
+    background-color: rgba(0, 0, 0, 0.541);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    color: black;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+label{
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+color:black;
+}
+button{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover{
+    background-color: #00ff88;
+    color: #1a1a1a;
+}
+.social{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.social div{
+    width: 150px;
+    border-radius: 3px;
+    padding: 5px 10px 10px 5px;
+    background-color: rgba(255,255,255,0.27);
+    color: #eaf0fb;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.social div:hover{
+    background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+    background-color: #1877f2;
+}
+.social .go{
+    background-color: #db4437;
+}
+.social i{
+    margin-right: 4px;
+}
+.signup-link{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+.signup-link a{
+    color: #00ff88;
+    text-decoration: none;
+}
+.signup-link a:hover{
+    text-decoration: underline;
+}
